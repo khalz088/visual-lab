@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+/* Terminal Output */
+#terminal-output {
+    font-family: 'Courier New', Courier, monospace;
+    color: #0f0; /* Green text */
+    white-space: pre-wrap; /* Preserve whitespace and wrap text */
+    word-break: break-all; /* Force words to break at any character */
+    height: calc(100% - 30px); /* Adjust height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Terminal Input */
+#terminal-input {
+    display: flex;
+    align-items: center;
+    margin-top: 10px; /* Space between output and input */
+}
+
+/* Typed Text */
+#typed-text {
+    display: inline-block;
+    color: #0f0; /* Green text */
+}
+
+/* Cursor */
+#cursor {
+    animation: blink-animation 1s steps(1) infinite;
+    color: #0f0; /* Green cursor */
+}
+
+/* Cursor Blink Animation */
+@keyframes blink-animation {
+    50% {
+        opacity: 0;
+    }
+}
+
+
+
