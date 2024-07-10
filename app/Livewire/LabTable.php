@@ -37,7 +37,14 @@ final class LabTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Labs::query();
+        if (auth()->user()->role_id == 1)
+        {
+            return Labs::query();
+        }
+        else {
+            return Labs::where('user_id', auth()->user()->id)->query();
+        }
+
     }
 
     public function relationSearch(): array
@@ -51,7 +58,6 @@ final class LabTable extends PowerGridComponent
             ->add('id')
             ->add('name')
             ->add('description')
-            ->add('user_id')
             ->add('created_at');
     }
 
@@ -62,7 +68,7 @@ final class LabTable extends PowerGridComponent
             Column::make('Name', 'name')
                 ->sortable()
                 ->searchable(),
-            Column::make('User id', 'user_id'),
+
             Column::make('Created at', 'created_at')
                 ->sortable()
                 ->searchable(),
